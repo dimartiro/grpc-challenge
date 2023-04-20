@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "github.com/dimartiro/grpc-challenge";
+
+package challenge;
+
+service Challenge {
+  rpc Ping (Empty) returns (ServiceReply);
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc Forward (ForwardRequest) returns (ServiceReply);
+}
+
+message Empty {}
+
+message ServiceReply {
+  //Implementar el o los campos de la respuesta
+}
+
+message AddRequest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+message AddResponse {
+  int64 result = 1;
+}
+
+enum Method {
+  PING = 0;
+  FORWARD = 1;
+}
+
+message ForwardRequest {
+  string host = 1;
+  Method method = 2;
+  //Implementar el campo que hace falta para que el servidor de destino ejecute un nuevo forward
+}
