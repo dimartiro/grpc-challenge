@@ -55,6 +55,8 @@ func (s *ChallengeServer) Forward(ctx context.Context, in *pb.ForwardRequest) (*
 	//Respuesta del servicio
 	var reply *pb.ServiceReply
 
+	//A PARTIR DE ESTE PUNTO SE PUEDE MODIFICAR LO QUE NECESITES :D
+
 	//Recibimos un forward, por lo que debemos evaluar que metodo ejecutar
 	switch in.GetMethod() {
 	case pb.Method_PING:
